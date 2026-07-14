@@ -1,5 +1,5 @@
 import * as Device from "expo-device";
-import { Platform, StyleSheet, Text } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { ThemedText } from "@/components/themed-text";
@@ -25,12 +25,11 @@ function getDevMenuHint() {
   );
 }
 
-export default function DashboardScreen() {
+export default function CardsScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText>Dashboard</ThemedText>
-        <Text className="text-red-500">Test Red</Text>
+        <ThemedText>Cards</ThemedText>
       </SafeAreaView>
     </ThemedView>
   );
