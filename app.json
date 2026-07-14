@@ -34,7 +34,8 @@
           "imageWidth": 76
         }
       ],
-      "expo-dev-client"
+      "expo-dev-client",
+      "@react-native-vector-icons/ionicons"
     ],
     "experiments": {
       "typedRoutes": true,
