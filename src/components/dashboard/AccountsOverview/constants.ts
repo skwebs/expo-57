@@ -1,0 +1,2 @@
+export const SCREEN_HORIZONTAL_PADDING = 16;
+export const ACCOUNT_CARD_GAP = 10;
