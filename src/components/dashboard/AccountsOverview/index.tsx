@@ -1,5 +1,10 @@
 import { formatAmount } from "@/utils/format";
 import Ionicons from "@react-native-vector-icons/ionicons";
+// expo router
+import { useRouter } from "expo-router";
+
+const router = useRouter();
+
 import {
   FlatList,
   Pressable,
@@ -57,6 +62,8 @@ function AccountCard({ item, width }: AccountCardProps) {
       className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900"
       onPress={() => {
         // Navigate to corresponding account screen here.
+        console.log(`Navigating to account screen ${item.navigateTo}`);
+        router.push(item.navigateTo);
       }}
       android_ripple={{
         color: rippleColor,
@@ -70,7 +77,7 @@ function AccountCard({ item, width }: AccountCardProps) {
       </View>
 
       <Text
-        className="mt-3 text-xs font-bold uppercase text-slate-600 dark:text-slate-400"
+        className="mt-3 text-xs font-bold text-slate-600 uppercase dark:text-slate-400"
         numberOfLines={1}
         ellipsizeMode="tail"
       >
@@ -125,7 +132,8 @@ export default function AccountsOverview() {
 
         <Pressable
           onPress={() => {
-            // Navigate to all accounts screen.
+            router.push("/accounts");
+            console.log("Navigate to all accounts screen.");
           }}
           hitSlop={8}
         >

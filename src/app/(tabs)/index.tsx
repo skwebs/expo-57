@@ -6,12 +6,11 @@ import { View } from "react-native";
 
 export default function DashboardScreen() {
   return (
-    <View className="flex-1 pt-safe bg-white dark:bg-slate-950">
+    <View className="flex-1 bg-white pt-safe dark:bg-slate-950">
       <View className="px-4 pt-3 pb-1">
         <DashboardHeader />
         <BudgetOverviewCard />
       </View>
-
       <RecentTransactions header={<AccountsOverview />} />
     </View>
   );

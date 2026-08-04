@@ -7,7 +7,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
 
-import "../global.css";
+// import "../global.css";
+import "../styles/global.css";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -24,13 +25,13 @@ export default function RootLayout() {
         <StatusBar style={isDark ? "light" : "dark"} />
 
         {/* Global status bar background */}
-        <View
-          className="absolute left-0 right-0 top-0 z-50 bg-white/80 dark:bg-slate-950/70"
+        {/* <View
+          className="absolute top-0 right-0 left-0 z-50 bg-white/80 dark:bg-slate-950/70"
           style={{ height: insets.top }}
           pointerEvents="none"
-        />
+        /> */}
         <View
-          className="absolute left-0 right-0 bottom-0 z-50 bg-white/80 dark:bg-slate-950/70"
+          className="absolute right-0 bottom-0 left-0 z-50 bg-white/80 dark:bg-slate-950/70"
           style={{ height: insets.bottom }}
           pointerEvents="none"
         />

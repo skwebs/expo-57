@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 
-const TransactionsScreen = () => {
+const SignInScreen = () => {
   return (
     <View className="flex-1 bg-white pt-safe dark:bg-slate-950">
-      <Text>TransactionsScreen</Text>
+      <Text>SignInScreen</Text>
     </View>
   );
 };
 
-export default TransactionsScreen;
+export default SignInScreen;

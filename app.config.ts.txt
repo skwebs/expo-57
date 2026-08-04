@@ -1,0 +1,76 @@
+import { ExpoConfig } from "expo/config";
+import appJson from "./app.json";
+
+const config = appJson.expo as ExpoConfig;
+
+const variant = process.env.APP_VARIANT ?? "development";
+
+const isDev = variant === "development";
+const isPreview = variant === "preview";
+
+const appName = isDev
+  ? "My Wallet Dev"
+  : isPreview
+    ? "My Wallet Preview"
+    : "My Wallet";
+
+const packageName = isDev
+  ? "in.isatish.mywallet.dev"
+  : isPreview
+    ? "in.isatish.mywallet.preview"
+    : "in.isatish.mywallet";
+
+const scheme = isDev
+  ? "mywallet-dev"
+  : isPreview
+    ? "mywallet-preview"
+    : "mywallet";
+
+const plugins: ExpoConfig["plugins"] = (config.plugins ?? []).map((plugin) => {
+  if (plugin === "expo-dev-client") {
+    return [
+      "expo-dev-client",
+      {
+        addGeneratedScheme: isDev,
+      },
+    ];
+  }
+
+  if (Array.isArray(plugin) && plugin[0] === "expo-dev-client") {
+    return [
+      "expo-dev-client",
+      {
+        ...(plugin[1] ?? {}),
+        addGeneratedScheme: isDev,
+      },
+    ];
+  }
+
+  return plugin;
+});
+
+const expoConfig: ExpoConfig = {
+  ...config,
+
+  name: appName,
+  scheme,
+
+  android: {
+    ...config.android,
+    package: packageName,
+  },
+
+  ios: {
+    ...config.ios,
+    bundleIdentifier: packageName,
+  },
+
+  plugins,
+
+  extra: {
+    ...config.extra,
+    appVariant: variant,
+  },
+};
+
+export default expoConfig;
