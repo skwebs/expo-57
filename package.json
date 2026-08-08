@@ -5,7 +5,7 @@
   "dependencies": {
     "@expo/ui": "~57.0.9",
     "@react-native-vector-icons/ionicons": "^13.1.2",
-    "expo": "~57.0.10",
+    "expo": "~57.0.11",
     "expo-constants": "~57.0.3",
     "expo-dev-client": "~57.0.8",
     "expo-device": "~57.0.1",
@@ -14,10 +14,10 @@
     "expo-image": "~57.0.2",
     "expo-keep-awake": "~57.0.0",
     "expo-linking": "~57.0.5",
-    "expo-router": "~57.0.10",
+    "expo-router": "~57.0.11",
     "expo-splash-screen": "~57.0.5",
     "expo-status-bar": "~57.0.1",
-    "expo-symbols": "~57.0.1",
+    "expo-symbols": "~57.0.2",
     "expo-system-ui": "~57.0.1",
     "expo-web-browser": "~57.0.2",
     "nativewind": "^5.0.0-preview.4",
@@ -55,7 +55,11 @@
     "ios": "cross-env APP_VARIANT=development expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "kill": "npx kill-port 8081"
+    "kill": "npx kill-port 8081",
+    "build:debug": "cd android && gradlew.bat assembleDebug",
+    "build:release": "cd android && gradlew.bat assembleRelease",
+    "build:apk": "cross-env APP_VARIANT=production expo prebuild --clean && cd android && gradlew.bat assembleRelease",
+    "build:aab": "cross-env APP_VARIANT=production expo prebuild --clean && cd android && gradlew.bat bundleRelease"
   },
   "private": true,
   "overrides": {
